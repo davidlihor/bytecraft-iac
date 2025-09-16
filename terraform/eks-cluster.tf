@@ -22,8 +22,7 @@ module "eks" {
       before_compute = true
     }
     aws-ebs-csi-driver = {
-      service_account_role_arn = aws_iam_role.ebs_csi.arn
-      resolve_conflicts = "OVERWRITE"
+      before_compute = true
     }
   }
 
