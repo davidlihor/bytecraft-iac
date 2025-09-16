@@ -22,7 +22,8 @@ module "eks" {
       before_compute = true
     }
     aws-ebs-csi-driver = {
-      before_compute = true
+      service_account_role_arn = module.irsa_ebs_csi.iam_role_arn
+      before_compute           = true
     }
   }
 
