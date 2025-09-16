@@ -1,6 +1,6 @@
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "5.1.2"
+  version = "6.0.1"
 
   name = "bytecraft-eks"
 
@@ -22,5 +22,10 @@ module "vpc" {
   private_subnet_tags = {
     "kubernetes.io/cluster/${local.cluster_name}" = "shared"
     "kubernetes.io/role/internal-elb"             = 1
+  }
+
+  tags = {
+    Project     = "bytecraft"
+    Environment = "dev"
   }
 }
