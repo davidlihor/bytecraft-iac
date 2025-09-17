@@ -4,7 +4,7 @@ module "eks" {
 
   name               = local.cluster_name
   kubernetes_version = "1.33"
-  enable_irsa = true
+  enable_irsa        = true
 
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.private_subnets
@@ -23,8 +23,8 @@ module "eks" {
       before_compute = true
     }
     aws-ebs-csi-driver = {
-      most_recent       = true
-      resolve_conflicts = "OVERWRITE"
+      most_recent              = true
+      resolve_conflicts        = "OVERWRITE"
       service_account_role_arn = module.ebs_csi_irsa_role.arn
     }
   }
